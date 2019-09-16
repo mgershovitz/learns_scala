@@ -1,0 +1,18 @@
+coursier.ResolutionException: Encountered 2 error(s) in dependency resolution:
+    org.scala-lang:scala-library:2.12.08:
+        not found:
+            /Users/mayagershovitzbar/.ivy2/local/org.scala-lang/scala-library/2.12.08/ivys/ivy.xml
+            https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.08/scala-library-2.12.08.pom
+    org.scalatest:scalatest_2.12:2.2.4:
+        not found:
+            /Users/mayagershovitzbar/.ivy2/local/org.scalatest/scalatest_2.12/2.2.4/ivys/ivy.xml
+            https://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/2.2.4/scalatest_2.12-2.2.4.pom
+[error] (*:ssExtractDependencies) coursier.ResolutionException: Encountered 2 error(s) in dependency resolution:
+[error]     org.scala-lang:scala-library:2.12.08:
+[error]         not found:
+[error]             /Users/mayagershovitzbar/.ivy2/local/org.scala-lang/scala-library/2.12.08/ivys/ivy.xml
+[error]             https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.08/scala-library-2.12.08.pom
+[error]     org.scalatest:scalatest_2.12:2.2.4:
+[error]         not found:
+[error]             /Users/mayagershovitzbar/.ivy2/local/org.scalatest/scalatest_2.12/2.2.4/ivys/ivy.xml
+[error]             https://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/2.2.4/scalatest_2.12-2.2.4.pom
