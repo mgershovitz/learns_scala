@@ -54,7 +54,7 @@ object FunSets {
    */
   def forall(s: Set, p: Int => Boolean): Boolean = {
     def iter(a: Int): Boolean = {
-      if (!p(a)) false
+      if (contains(s,a) & !p(a)) false
       else if (a > 1000) true
       else iter(a + 1)
     }
