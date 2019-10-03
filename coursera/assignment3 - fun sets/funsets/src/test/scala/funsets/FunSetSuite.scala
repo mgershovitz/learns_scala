@@ -139,9 +139,18 @@ class FunSetSuite extends FunSuite {
   test("test forall") {
     new TestSets {
       assert(forall(s1, (x:Int) => x==1))
+      assert(!forall(all, (x:Int) => x==1))
     }
   }
 
+
+  test("test exists") {
+    new TestSets {
+      assert(exists(s1, (x:Int) => x==1))
+      assert(!exists(s2, (x:Int) => x==1))
+      assert(exists(all, (x:Int) => x==1))
+    }
+  }
 
   test("test filter function") {
     new TestSets {
