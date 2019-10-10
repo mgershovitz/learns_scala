@@ -138,20 +138,28 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
     def isEmpty: Boolean = false
 
     def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = {
-      val currentAcc = acc.union(right.filter(p))
-      if (p(elem)) left.filterAcc(p, currentAcc.incl(elem))
-      else left.filterAcc(p, currentAcc)
+
+      def unionFilter(currentAcc: TweetSet): TweetSet = currentAcc.union(left.filter(p).union(right.filter(p)))
+
+      if (p(elem)) unionFilter(acc.incl(elem))
+      else unionFilter(acc)
     }
 
     def union(that: TweetSet): TweetSet = {
       left.union(right.union(that.incl(elem)))
     }
 
-    def mostRetweeted: Tweet =
-      if (filter(tw => tw.retweets > elem.retweets).isEmpty) elem
-      else remove(elem).mostRetweeted
+    def mostRetweeted: Tweet = {
 
-    def descendingByRetweet: TweetList =
+      def max(t1: Tweet, t2: Tweet): Tweet = if (t1.retweets > t2.retweets) t1 else t2
+
+      if (left.isEmpty && right.isEmpty) elem
+      else if (left.isEmpty) max(elem, right.mostRetweeted)
+      else if (right.isEmpty) max(elem, left.mostRetweeted)
+      else max(elem, max(left.mostRetweeted, right.mostRetweeted))
+    }
+
+  def descendingByRetweet: TweetList =
       {
         val t = mostRetweeted
         new Cons(t, remove(t).descendingByRetweet)
