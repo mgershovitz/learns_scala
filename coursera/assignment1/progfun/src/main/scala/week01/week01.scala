@@ -1,6 +1,6 @@
 package week01
 
-object week01  extends App{
+object week01 {
   def abs(x: Double): Double = if (x < 0) -x else x
 
   def sqrt(x: Double): Double = {
