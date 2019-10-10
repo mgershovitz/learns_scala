@@ -201,9 +201,8 @@ trait TweetList {
       tail.foreach(f)
     }
   def size: Int = {
-    var count = 0
-    foreach(tw => count += 1)
-    count
+    def countAcc(l: TweetList, acc: Int): Int = if (l.isEmpty) acc else countAcc(l.tail, acc+1)
+    countAcc(this, 0)
   }
 }
 
